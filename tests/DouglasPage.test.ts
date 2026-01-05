@@ -12,7 +12,7 @@ const filterData = [
   //{ criteria: 'Limitiert', option: 'Limitiert' }
 ];
 
-test.describe('Douglas Parfum – Data Driven Filters', () => {
+test.describe('Douglas Parfum – Data Driven Filters @filter', () => {
 
   test.beforeEach(async ({ page,douglasPage}) => {
     await page.goto(ENV.baseURL, { waitUntil: 'domcontentloaded' });
