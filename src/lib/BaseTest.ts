@@ -1,17 +1,24 @@
 import { test as base } from '@playwright/test';
+import { LandingPage } from '../pageFactory/LandingPage';
+import { FiltersPage } from '../pageFactory/FiltersPage';
+import { ProductDetailsPage } from '../pageFactory/ProductDetailsPage';
 
-//replace with export of page with locators
-
-import { DouglasPage } from '../pageFactory/DouglasPage';
-
-//replase with POM classes
 const test = base.extend<{
-    douglasPage: DouglasPage;
+    landingPage: LandingPage;
+    filtersPage: FiltersPage;
+    productDetailsPage: ProductDetailsPage;
+
       
 }>({
-    douglasPage: async ({ page, context }, use) => {
-        await use(new DouglasPage(page, context));
-    } 
+    landingPage: async ({ page, context }, use) => {
+        await use(new LandingPage(page, context));
+    },
+    filtersPage: async ({ page, context }, use) => {
+        await use(new FiltersPage(page, context));
+    },
+    productDetailsPage: async ({ page, context }, use) => {
+        await use(new ProductDetailsPage(page, context));
+    }
 })
 
 export default test;
